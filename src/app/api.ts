@@ -1,0 +1,1 @@
+export const VUTTR_API = "http://localhost:3000";
