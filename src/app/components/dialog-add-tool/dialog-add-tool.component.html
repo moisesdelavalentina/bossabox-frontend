@@ -1,0 +1,35 @@
+<h1 mat-dialog-title>
+  <mat-icon>add</mat-icon> Add new tool
+</h1>
+<div mat-dialog-content>
+  <div>
+
+    <form [formGroup]="toolForm" class="form-container">
+
+      <mat-form-field>
+        <input formControlName="title" matInput placeholder="Tool Name">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input formControlName="link" matInput placeholder="Tool Link">
+      </mat-form-field>
+
+      <mat-form-field>
+        <textarea formControlName="description" matInput placeholder="Tool description" rows="3"></textarea>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input formControlName="tags" matInput placeholder="Tags">
+      </mat-form-field>
+
+    </form>
+
+  </div>
+
+
+</div>
+<div mat-dialog-actions>
+    <button mat-raised-button (click)="onCancelClick()">Cancel</button>
+    <button mat-raised-button (click)="onAddClick()" [disabled]="!toolForm.valid">Add tool</button>
+ 
+</div>

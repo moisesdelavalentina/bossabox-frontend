@@ -34,7 +34,13 @@ export class ToolService {
   }
 
   public getToolsByTag(tag:String){
-    return this.http.get(`${VUTTR_API}/tools?tag=${tag}`).pipe(
+    return this.http.get(`${VUTTR_API}/tools?tags_like=${tag}`).pipe(
+      map(res => res as Tool[])
+    )
+  }
+
+  public getToolsBySearch(search:String){
+    return this.http.get(`${VUTTR_API}/tools?q=${search}`).pipe(
       map(res => res as Tool[])
     )
   }

@@ -1,0 +1,12 @@
+<h1 mat-dialog-title>
+  <mat-icon>close</mat-icon> Remove tool
+</h1>
+<div mat-dialog-content>
+  <p>
+    Are you sure want to remove <b>{{tool.title}}</b>?
+  </p>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button (click)="onCancelClick()">Cancel</button>
+  <button mat-raised-button color="warn" (click)="onRemoveClick()" cdkFocusInitial [disabled]="loading">Yes, remove</button>
+</div>

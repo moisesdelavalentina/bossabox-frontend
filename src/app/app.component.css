@@ -1,0 +1,22 @@
+.container{
+   width: 860px;
+   margin: 0 auto;
+}
+
+@media (max-width: 900px)  {
+    .container{
+        width: 95%;
+     }
+}
+
+
+.header{
+    position: relative;
+    
+}
+
+.fab{
+    position: absolute;
+    top:10px;
+    right:10px;
+  }
