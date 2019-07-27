@@ -1,27 +1,137 @@
-# BossaboxFrontend
+# Bossabox Frontend VUTTR
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.0.
+Aplicação front-end para consumir API VUTTR (Gerenciamento de ferramentas úteis para desenvolvedores), essa aplicação é uma parte do dessafio proposto pela Bossabox. Foi desenvolvida utilizando o Framework [Angular](https://angular.io/).
 
-## Development server
+## Executando a aplicação
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Para executar a aplicação, é necessario instalar o [NodeJs](https://nodejs.org/en/download/). Execute o comando `git clone https://github.com/moisesdelavalentina/bossabox-frontend.git` para fazer o download da aplicação, navegue a para a pasta do projeto e utilize o comando `npm install` para instalar as dependencias. Após a instalação execute `ng serve` para servir a aplicação. Abra o navegador e navegue para o endereço: `http://localhost:4200/`.
 
-## Code scaffolding
+## Rotas
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+A aplicação está preparada para consumir uma API com as seguintes rotas:
 
-## Build
+* `GET /tools` : Lista de todos os itens cadastrados.
+* `POST /tools` : Cadastra um novo item.
+* `DELETE /tools/:id` : Apaga um item de acordo com o ID :id.
+* `GET /tools?q=:busca` : Lista os itens de acordo com uma busca :q.
+* `GET /tools?tags_like=:busca` : Lista os itens de acordo com uma tag especificada :tags_like.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## Exemplos de Requisição
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Requisição: 
+```javascript
+GET /tools
+```
+Resposta:
+```javascript
+[
+    {
+        "title": "Laravel",
+        "link": "https://laravel.com/",
+        "description": "Framework PHP para desenvolvimento de sites e aplicações para web",
+        "tags":[
+            "php", 
+            "framework", 
+            "web", 
+            "fullsatck"
+        ]
+    }
+]
+```
 
-## Running end-to-end tests
+### POST /tools
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Requisição:
+```javascript
+// POST /tools
+// Content-Type: application/json
+{
+    "title": "Laravel",
+    "link": "https://laravel.com/",
+    "description": "Framework PHP para desenvolvimento de sites e aplicações para web",
+    "tags":[
+        "php", 
+        "framework", 
+        "web", 
+        "fullsatck"
+    ]
+}
+```
 
-## Further help
+Resposta:
+```javascript
+{
+    "id":5
+    "title": "Laravel",
+    "link": "https://laravel.com/",
+    "description": "Framework PHP para desenvolvimento de sites e aplicações para web",
+    "tags":[
+        "php", 
+        "framework", 
+        "web", 
+        "fullsatck"
+    ]
+}
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+### GET /tools?q=:busca
+
+Requisição: 
+```javascript
+GET /tools?q=Laravel
+```
+Resposta:
+```javascript
+[
+    {
+        "id":5
+        "title": "Laravel",
+        "link": "https://laravel.com/",
+        "description": "Framework PHP para desenvolvimento de sites e aplicações para web",
+        "tags":[
+            "php", 
+            "framework", 
+            "web", 
+            "fullsatck"
+        ]
+    }
+]
+```
+
+### GET /tools?tags_like=:busca
+
+Requisição: 
+```javascript
+GET /tools?tags_like=framework
+```
+Resposta:
+```javascript
+[
+    {
+        "id":5
+        "title": "Laravel",
+        "link": "https://laravel.com/",
+        "description": "Framework PHP para desenvolvimento de sites e aplicações para web",
+        "tags":[
+            "php", 
+            "framework", 
+            "web", 
+            "fullsatck"
+        ]
+    }
+]
+```
+
+
+### DELETE /tools/:id
+Requisição:
+```javascript
+DELETE /tools/5
+```
+
+Resposta:
+```javascript
+// Status: 200 OK
+{}
+```
