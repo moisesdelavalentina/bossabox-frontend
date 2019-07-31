@@ -29,7 +29,7 @@ export class DialogAddToolComponent implements OnInit {
         [
           Validators.required,
           Validators.minLength(2),
-          Validators.maxLength(100)
+          Validators.maxLength(45)
         ]
       ],
       link: [
@@ -37,7 +37,7 @@ export class DialogAddToolComponent implements OnInit {
         [
           Validators.required,
           Validators.minLength(2),
-          Validators.maxLength(100)
+          Validators.maxLength(200)
         ]
       ],
       description: [
@@ -45,7 +45,7 @@ export class DialogAddToolComponent implements OnInit {
         [
           Validators.required,
           Validators.minLength(2),
-          Validators.maxLength(100)
+          Validators.maxLength(500)
         ]
       ],
       tags: [
@@ -53,7 +53,7 @@ export class DialogAddToolComponent implements OnInit {
         [
           Validators.required,
           Validators.minLength(2),
-          Validators.maxLength(100)
+          Validators.maxLength(300)
         ]
       ]
     });
@@ -73,7 +73,7 @@ export class DialogAddToolComponent implements OnInit {
         title: this.toolForm.value.title,
         link: this.toolForm.value.link,
         description: this.toolForm.value.description,
-        tags: this.toolForm.value.tags.split(" ")
+        tags: this.toolForm.value.tags.trim().split(" ")
       }
 
       this.tollService.insertTool(tool).subscribe(result=>{
