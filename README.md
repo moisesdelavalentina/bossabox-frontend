@@ -1,10 +1,10 @@
 # Bossabox Frontend VUTTR
 
-Aplicação front-end para consumir a API VUTTR (Very Useful Tools to Remember), essa aplicação é uma parte do desafio proposto pela Bossabox. Foi desenvolvida utilizando o Framework [Angular](https://angular.io/).
+Aplicação front-end para consumir API VUTTR (Gerenciamento de ferramentas úteis para desenvolvedores), essa aplicação é uma parte do dessafio proposto pela Bossabox. Foi desenvolvida utilizando o Framework [Angular](https://angular.io/).
 
 ## Executando a aplicação
 
-Para executar a aplicação, é necessário instalar o [NodeJs](https://nodejs.org/en/download/). Execute o comando `git clone https://github.com/moisesdelavalentina/bossabox-frontend.git` para fazer o download da aplicação, navegue até a pasta do projeto e utilize o comando `npm install` para instalar as dependências e `npm install -g @angular/cli` para instalar o angular cli. Após a instalação, execute `ng serve` para servir a aplicação. Abra o navegador e navegue para o endereço: `http://localhost:4200/`.
+Para executar a aplicação, é necessario instalar o [NodeJs](https://nodejs.org/en/download/). Execute o comando `git clone https://github.com/moisesdelavalentina/bossabox-frontend.git` para fazer o download da aplicação, navegue a para a pasta do projeto e utilize o comando `npm install` para instalar as dependencias. Após a instalação execute `ng serve` para servir a aplicação. Abra o navegador e navegue para o endereço: `http://localhost:4200/`.
 
 ## Rotas
 
@@ -18,7 +18,6 @@ A aplicação está preparada para consumir uma API com as seguintes rotas:
 
 ## Exemplos de Requisição
 
-### GET /tools
 
 Requisição: 
 ```javascript
@@ -76,18 +75,6 @@ Resposta:
 }
 ```
 
-### DELETE /tools/:id
-Requisição:
-```javascript
-DELETE /tools/5
-```
-
-Resposta:
-```javascript
-// Status: 200 OK
-{}
-```
-
 ### GET /tools?q=:busca
 
 Requisição: 
@@ -134,4 +121,17 @@ Resposta:
         ]
     }
 ]
+```
+
+
+### DELETE /tools/:id
+Requisição:
+```javascript
+DELETE /tools/5
+```
+
+Resposta:
+```javascript
+// Status: 200 OK
+{}
 ```
